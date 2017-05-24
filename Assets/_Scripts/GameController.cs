@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
 	public Vector3 spawnValues;
 	public int pickupCount;
+	public Text scoreText;
 
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
 
+	private int score;
 
 	List<GameObject> pickupList = new List<GameObject>();
 	public GameObject Pickup1;
 	public GameObject Pickup2;
 	public GameObject Pickup3;
-    public GameObject Pickup4;
 
-    void Start()
+	void Start()
 	{
 		pickupList.Add(Pickup1);
 		pickupList.Add(Pickup2);
 		pickupList.Add(Pickup3);
-        pickupList.Add(Pickup4);
 
-        StartCoroutine (SpawnWaves ());
+		score = 0;
+		UpdateScore ();
+		StartCoroutine (SpawnWaves ());
 	}
 
 	IEnumerator SpawnWaves(){
@@ -42,5 +45,14 @@ public class GameController : MonoBehaviour
 			yield return new WaitForSeconds (waveWait);
 
 		}
+	}
+
+	public void AddScore(int scoreValue){
+		score += scoreValue;
+		UpdateScore ();
+	}
+
+	void UpdateScore(){
+		scoreText.text = "Pontos: " + score;
 	}
 }
