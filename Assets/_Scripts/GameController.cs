@@ -76,11 +76,6 @@ public class GameController : MonoBehaviour
 			int hazardIndex = UnityEngine.Random.Range(0, 3);
 			Instantiate (hazardList [hazardIndex], new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, 0), Quaternion.identity);
 
-			if (gameOver) {
-				gameOverText.text = "Game Over";
-				//SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
-			}
-
 			yield return new WaitForSeconds (waveWait);
 		}
 	}
