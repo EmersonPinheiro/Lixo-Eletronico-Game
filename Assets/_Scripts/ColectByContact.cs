@@ -21,6 +21,10 @@ public class ColectByContact : MonoBehaviour {
 		if (other.gameObject.tag == "PickUp") {
 			Destroy (other.gameObject);
 			gameController.AddScore (scoreValue);
+		} 
+		if (other.gameObject.tag == "Hazard") {
+			Destroy (other.gameObject);
+			gameController.UpdateLifePoints ();
 		}
 	}
 }
