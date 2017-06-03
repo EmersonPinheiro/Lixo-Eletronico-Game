@@ -1,29 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+=======
+>>>>>>> origin/junior
 
 public class GameController : MonoBehaviour
 {
 	public Vector3 spawnValues;
 	public int pickupCount;
-	public Text scoreText;
 
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
 
+<<<<<<< HEAD
 	private int score;
 	public Text lifeText;
 	private int lifePoints;
 
 	private bool gameOver;
 	public Text gameOverText;
+=======
+>>>>>>> origin/junior
 
 	List<GameObject> pickupList = new List<GameObject>();
 	public GameObject Pickup1;
 	public GameObject Pickup2;
+<<<<<<< HEAD
 	public GameObject Pickup3;
 	public GameObject Pickup4;
 	public GameObject Pickup5;
@@ -58,6 +64,17 @@ public class GameController : MonoBehaviour
 		gameOverText.text = "";
 
 		StartCoroutine (SpawnWaves ());
+=======
+	public GameObject Pickup3;
+
+    void Start()
+	{
+		pickupList.Add(Pickup1);
+		pickupList.Add(Pickup2);
+		pickupList.Add(Pickup3);
+
+        StartCoroutine (SpawnWaves ());
+>>>>>>> origin/junior
 	}
 
 	IEnumerator SpawnWaves(){
@@ -86,6 +103,7 @@ public class GameController : MonoBehaviour
 			//SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 	}
+<<<<<<< HEAD
 
 	public void AddScore(int scoreValue){
 		score += scoreValue;
@@ -110,4 +128,6 @@ public class GameController : MonoBehaviour
 		
 
 
+=======
+>>>>>>> origin/junior
 }
