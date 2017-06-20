@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: dba0d18c7203a39419c66327165f98c0
+timeCreated: 1496590150
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Passero One
+  fontNames:
+  - Passero One
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

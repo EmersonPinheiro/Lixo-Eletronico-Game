@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 920d1b795988a8c41bddcfb7ac59a4e8
+timeCreated: 1496590150
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Janda Safe and Sound Solid
+  fontNames:
+  - Janda Safe and Sound Solid
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 26a3d323671d97d42bdcbd3a7e05b111
+timeCreated: 1496590149
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cut it out DEMO
+  fontNames:
+  - Cut it out DEMO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

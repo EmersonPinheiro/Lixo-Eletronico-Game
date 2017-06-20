@@ -1,35 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-=======
->>>>>>> origin/junior
 
 public class GameController : MonoBehaviour
 {
 	public Vector3 spawnValues;
 	public int pickupCount;
+	public Text scoreText;
 
-	public float spawnWait;
+	public float maxSpawnWait;
+	public float minSpawnWait;
 	public float startWait;
 	public float waveWait;
 
-<<<<<<< HEAD
 	private int score;
 	public Text lifeText;
 	private int lifePoints;
 
 	private bool gameOver;
+	private bool restart;
 	public Text gameOverText;
-=======
->>>>>>> origin/junior
+	public Text restartText;
+
+
+
+	public GameObject player;
 
 	List<GameObject> pickupList = new List<GameObject>();
 	public GameObject Pickup1;
 	public GameObject Pickup2;
-<<<<<<< HEAD
 	public GameObject Pickup3;
 	public GameObject Pickup4;
 	public GameObject Pickup5;
@@ -55,26 +56,34 @@ public class GameController : MonoBehaviour
 		hazardList.Add(Hazard3);
 		hazardList.Add(Hazard4);
 
-
 		score = 0;
 		lifePoints = 3;
 		UpdateLife ();
 		UpdateScore ();
 		gameOver = false;
+		restart = false;
 		gameOverText.text = "";
+		restartText.text = "";
 
 		StartCoroutine (SpawnWaves ());
-=======
-	public GameObject Pickup3;
+	}
 
-    void Start()
-	{
-		pickupList.Add(Pickup1);
-		pickupList.Add(Pickup2);
-		pickupList.Add(Pickup3);
-
-        StartCoroutine (SpawnWaves ());
->>>>>>> origin/junior
+	void Update(){
+		if (gameOver) {
+			gameOverText.text = "Fim de jogo!";
+			restartText.text = "Pressione R para recomeçar!";
+			restart = true;
+			player.SetActive (false);
+		}
+		if (restart) {
+			if (Input.GetKey (KeyCode.R)) {
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+			}
+		}
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
 	}
 
 	IEnumerator SpawnWaves(){
@@ -84,26 +93,27 @@ public class GameController : MonoBehaviour
 			for (int i = 0; i < pickupCount; i++) {
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, 0);
 				Quaternion spawnRotation = Quaternion.identity;
-				int pickupIndex = UnityEngine.Random.Range(0,5);
+				int pickupIndex = UnityEngine.Random.Range(1, 6);
 				Instantiate (pickupList[pickupIndex], spawnPosition, spawnRotation);
-				yield return new WaitForSeconds (spawnWait);
+				yield return new WaitForSeconds (maxSpawnWait);
+
 			}
 
 			//Alterar posteriormente (verificar uma maneira melhor de implementar)
-			int hazardIndex = UnityEngine.Random.Range(0, 3);
+			int hazardIndex = UnityEngine.Random.Range(1, 4);
 			Instantiate (hazardList [hazardIndex], new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, 0), Quaternion.identity);
 
 			yield return new WaitForSeconds (waveWait);
+
+			if (maxSpawnWait > minSpawnWait) {
+				IncreaseDifficulty ();
+			}
 		}
 	}
 
-	void Update(){
-		if (gameOver) {
-			gameOverText.text = "Game Over";
-			//SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
-		}
+	public void IncreaseDifficulty(){
+		maxSpawnWait -= 0.5f;
 	}
-<<<<<<< HEAD
 
 	public void AddScore(int scoreValue){
 		score += scoreValue;
@@ -111,10 +121,10 @@ public class GameController : MonoBehaviour
 	}
 
 	public void UpdateLifePoints(){
-		if (lifePoints == 0) {
+        lifePoints -= 1;
+        if (lifePoints == 0) {
 			gameOver = true;
-		}
-		lifePoints -= 1;	
+		}	
 		UpdateLife ();
 	}
 
@@ -128,6 +138,4 @@ public class GameController : MonoBehaviour
 		
 
 
-=======
->>>>>>> origin/junior
 }

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: aaf4c25554c982043ab4003d9d75f5f3
+timeCreated: 1496590150
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Behind the surprise
+  fontNames:
+  - Behind the surprise
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
